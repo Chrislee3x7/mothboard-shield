@@ -1,0 +1,9 @@
+file_format: "1"
+id: mothboard
+name: MOTHBOARD
+type: shield
+url: n/a
+requires: [nice!nano, nice!view]
+features:
+  - keys
+  - display
