@@ -1,3 +1,4 @@
+name: zmk-keyboard-mothboard
 build:
   settings:
     board_root: .

@@ -1,0 +1,6 @@
+if SHIELD_MOTHBOARD
+
+config ZMK_KEYBOARD_NAME
+    default "Mothboard"
+
+endif
