@@ -32,15 +32,6 @@ nice_view_spi: &spi0 {
 		zmk,matrix-transform = &default_transform;
 	};
 
-	nice_view_spi: spi1 {
-		compatible = "nordic,nrf-spi";
-		status = "okay";
-		sck-pin = <3>;
-		mosi-pin = <2>;
-		miso-pin = <4>;
-		cs-gpios = <0>;
-	};
-
 	default_transform: keymap_transform_0 {
 		compatible = "zmk,matrix-transform";
 		columns = <6>;
