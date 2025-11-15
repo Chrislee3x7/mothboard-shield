@@ -29,7 +29,7 @@
 				&kp BSPC &kp LGUI &mt LCTRL LBKT	&mt RALT RBKT &kp RET &kp SPACE
 			>;
 		};
-		lower_layer {
+		right_function_layer {
 			label="LFUN";
 			display-name="LFUN";
 			bindings = <
@@ -40,7 +40,7 @@
 				&trans &trans &trans &trans &trans &trans
 			>;
 		};
-		raise_layer {
+		left_function_layer {
 			label="RFUN";
 			display-name="RFUN";
 			bindings = <
