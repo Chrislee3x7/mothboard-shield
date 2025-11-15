@@ -51,7 +51,7 @@
 				&trans &trans &bootloader &trans &trans &trans
 			>;
 		};
-		bluetoooth_layer {
+		bluetooth_layer {
 			label="BLUE";
 			display-name="BLUE";
 			bindings = <
@@ -74,7 +74,7 @@
 			>;
 
 		};
-		trans_layer {
+		transparent_layer {
 			label="TRNS";
 			display-name="TRNS";
 			bindings = <	
