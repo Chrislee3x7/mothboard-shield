@@ -5,9 +5,11 @@
 #define BASE 0
 #define LFUN 1
 #define RFUN 2
-#define BLUE 3
-#define NUM  4
-#define TRNS 5
+#define NUM  3
+#define CAD  4
+#define MIRR 5
+#define BLUE 6
+#define TRNS 7
 
 
 &sl {
@@ -23,8 +25,8 @@
 			display-name="BASE";
 			bindings = <
 				&kp N1	&kp N2	&kp N3 	&kp N4	&kp N5		&kp N6	&kp N7	&kp N8	&kp N9	&kp N0
-				&kp TAB	&kp Q	&kp W	&kp E	&kp R	&kp T		&kp Y	&kp U	&kp I	&kp O	&kp P 	&lt RFUN MINUS
-				&lt LFUN ESC &kp A 	&kp S	&kp D	&kp F	&kp G		&kp H 	&kp J	&kp K	&kp L	&kp SEMI &kp APOS
+				&kp TAB	&kp Q	&kp W	&kp E	&kp R	&kp T		&kp Y	&kp U	&kp I	&kp O	&kp P 	&kp MINUS
+				&lt LFUN ESC &kp A 	&kp S	&kp D	&kp F	&kp G		&kp H 	&kp J	&kp K	&kp L	&kp SEMI &lt RFUN APOS
 				&mt LSHIFT LPAR &kp Z 	&kp X	&kp C	&kp V	&kp B		&kp N 	&kp M	&kp COMMA	&kp DOT	&kp FSLH &mt RSHIFT RPAR
 				&kp BSPC &kp LGUI &mt LCTRL LBKT	&mt RALT RBKT &kp RET &kp SPACE
 			>;
@@ -36,7 +38,7 @@
 				&kp F1	&kp F2	&kp F3 	&kp F4	&kp F5		&kp F6	&kp F7	&kp F8	&kp F9	&kp K_PWR
 				&trans    &trans    &trans &trans    &trans    &trans &trans    &trans    &trans &trans &trans &kp EQUAL 
 				&trans    &trans    &trans &trans    &trans    &trans		&kp LEFT  &kp DOWN	&kp UP	&kp RIGHT &kp C_BRI_UP &kp C_VOL_UP
-				&trans    &trans    &trans &trans    &trans    &trans &tog NUM    &kp C_PP    &trans &trans &kp C_BRI_DN &kp C_VOL_DN
+				&trans    &trans    &trans &tog CAD    &trans    &trans &tog NUM    &kp C_PP    &trans &trans &kp C_BRI_DN &kp C_VOL_DN
 				&trans &trans &trans &trans &trans &trans
 			>;
 		};
@@ -46,20 +48,9 @@
 			bindings = <
 				&kp F1	&kp F2	&kp F3 	&kp F4	&kp F5		&kp F6	&kp F7	&kp F8	&kp F9	&kp K_LOCK
 				&trans    &trans    &trans &trans    &trans    &trans &trans    &trans    &trans &trans &trans &trans
-				&kp CAPS    &trans    &trans &trans    &trans    &trans &trans    &trans    &trans &trans &trans &trans
+				&kp CAPS    &trans    &trans &trans    &trans    &trans &trans    &trans    &trans &trans &tog MIRR &trans
 				&trans &kp TILDE &kp GRAVE    &kp PIPE    &kp BSLH &sl BLUE    &trans    &trans &trans    &trans    &trans &trans
 				&trans &trans &bootloader &trans &trans &trans
-			>;
-		};
-		bluetooth_layer {
-			label="BLUE";
-			display-name="BLUE";
-			bindings = <
-				&bt BT_SEL 0	&bt BT_SEL 1	&bt BT_SEL 2 	&bt BT_SEL 3	&bt BT_SEL 4	&trans    &trans &trans &trans &trans
-				&trans    &trans    &trans &trans    &trans    &trans &trans    &trans    &trans &trans &trans &trans
-				&trans    &trans    &trans &trans    &trans    &trans &bt BT_PRV    &trans    &trans &bt BT_NXT &trans &trans
-				&trans &trans &trans    &bt BT_CLR    &trans &trans    &trans    &trans &trans    &trans    &trans &trans
-				&trans &trans &trans &trans &trans &trans
 			>;
 		};
 		number_layer {
@@ -72,7 +63,39 @@
 				&trans &trans    &trans    &trans &trans &trans &trans  &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_N0 &trans
 				&trans    &trans    &trans &trans    &trans    &trans
 			>;
-
+		};
+		cad_layer {
+			label="CAD";
+			display-name="CAD";
+			bindings = <	
+				    &trans    &trans &trans    &trans    &trans &trans    &trans    &trans &trans &trans
+				&trans    &trans    &trans &trans    &trans    &trans &trans    &trans    &trans &trans &trans &trans
+				&lt MIRR ESC    &trans    &trans &trans    &trans    &trans &trans    &trans    &trans &trans &trans &tog CAD
+				&trans    &trans    &trans &trans    &trans    &trans &trans    &trans    &trans &trans &trans &trans
+							&trans    &trans    &trans &trans    &trans    &trans
+			>;
+		};
+		mirror_base_layer {
+			label="MIRR";
+			display-name="MIRR";
+			bindings = <	
+				&kp N0	&kp N9	&kp N8 	&kp N7	&kp N6			&kp N5	&kp N4	&kp N3	&kp N2	&kp N1
+				&kp MINUS	&kp P	&kp O	&kp I	&kp U	&kp Y		&kp T	&kp R	&kp E	&kp W	&kp Q 	&lt RFUN TAB
+				&trans &kp SEMI 	&kp L	&kp K	&kp J	&kp H	&kp G 	&kp F	&kp D	&kp S	&kp A &kp APOS
+				&mt RSHIFT RPAR &kp FSLH	&kp DOT	&kp COMMA	&kp M	&kp N	&kp B 	&kp V	&kp C	&kp X	&kp Z &mt LSHIFT LPAR
+				&kp SPACE &kp RET &mt RALT RBKT			&mt LCTRL LBKT &kp LGUI &kp BSPC
+			>;
+		};
+		bluetooth_layer {
+			label="BLUE";
+			display-name="BLUE";
+			bindings = <
+				&bt BT_SEL 0	&bt BT_SEL 1	&bt BT_SEL 2 	&bt BT_SEL 3	&bt BT_SEL 4	&trans    &trans &trans &trans &trans
+				&trans    &trans    &trans &trans    &trans    &trans &trans    &trans    &trans &trans &trans &trans
+				&trans    &trans    &trans &trans    &trans    &trans &bt BT_PRV    &trans    &trans &bt BT_NXT &trans &trans
+				&trans &trans &trans    &bt BT_CLR    &trans &trans    &trans    &trans &trans    &trans    &trans &trans
+				&trans &trans &trans &trans &trans &trans
+			>;
 		};
 		transparent_layer {
 			label="TRNS";
